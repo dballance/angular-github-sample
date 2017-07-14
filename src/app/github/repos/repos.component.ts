@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { GitHubRepository } from '../model';
@@ -9,9 +9,23 @@ import { RepositorySearchService } from '../repository-search.service';
   templateUrl: './repos.component.html',
   styleUrls: ['./repos.component.scss']
 })
-export class ReposComponent implements OnInit {
+export class ReposComponent {
+  /**
+   * The repos, fetched from the api.
+   *
+   * @type {Observable<GitHubRepository[]>}
+   * @memberof ReposComponent
+   */
+  public repos$: Observable<GitHubRepository[]>;
 
-  repos$: Observable<GitHubRepository[]>;
+  /**
+   * The selected repo
+   *
+   * @public
+   * @type {GitHubRepository}
+   * @memberof ReposComponent
+   */
+  public selected: GitHubRepository;
 
   constructor(
     private repos: RepositorySearchService
@@ -19,8 +33,14 @@ export class ReposComponent implements OnInit {
     this.repos$ = this.repos.getRepositoriesForKeyword('angular');
   }
 
-  ngOnInit() {
-
+  /**
+   * Event handler when a repo is selected
+   *
+   * @param {GitHubRepository} repo
+   * @memberof ReposComponent
+   */
+  public onRepoSelected(repo: GitHubRepository) {
+    this.selected = repo;
   }
 
 }

@@ -1,1 +1,1 @@
-<app-repo-preview *ngFor="let repo of repos" [repo]="repo"></app-repo-preview>
+<app-repo-preview *ngFor="let repo of repos" [repo]="repo" (view)="onSelect($event)"></app-repo-preview>

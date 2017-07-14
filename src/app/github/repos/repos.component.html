@@ -1,3 +1,7 @@
-<div class="container">
-  <app-repo-list [repos]="repos$ | async"></app-repo-list>
+<div class="row">
+  <h1>Top Angular Repos</h1>
+</div>
+<div class="row">
+  <app-repo-list [repos]="repos$ | async" (select)="onRepoSelected($event)" class="col-md-4 col-lg-4 col-sm-4"></app-repo-list>
+  <app-repo-detail *ngIf="selected" [repo]="selected" class="col-md-8 col-lg-8 col-sm-8"></app-repo-detail>
 </div>

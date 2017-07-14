@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { GitHubRepository } from '../model';
 
@@ -12,9 +12,31 @@ export class RepoListComponent {
   /**
    * The repos to display in the list
    *
+   * @public
    * @type {GitHubRepository[]}
    * @memberof RepoListComponent
    */
   @Input()
-  repos: GitHubRepository[];
+  public repos: GitHubRepository[];
+
+  /**
+   * Emitted when a repo is selected from the list
+   *
+   * @public
+   * @type {EventEmitter<GitHubRepository>}
+   * @memberof RepoListComponent
+   */
+  @Output()
+  public select: EventEmitter<GitHubRepository> = new EventEmitter();
+
+  /**
+   * Event handler for repo selection
+   *
+   * @private
+   * @param {any} $event
+   * @memberof RepoListComponent
+   */
+  private onSelect($event) {
+    this.select.emit($event);
+  }
 }

@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{ repo.name }}
+  </div>
+  <div class="panel-body">
+    <ul>
+      <li>Id: {{ repo.id }}</li>
+      <li>Name: {{ repo.name }}</li>
+      <li>URL: {{ repo.url }}</li>
+      <li>Description: {{ repo.Description }}</li>
+      <li>Created: {{ repo.created_at | date }}</li>
+      <li>Last Push: {{ repo.pushed_at | date }}</li>
+      <li>Stargazers: {{ repo.stargazers_count}} </li>
+    </ul>
+  </div>
+  <span class="divider"></span>
+  <input type="text" class="filter" placeholder="Filter properties..." (keyup)="filterRepoProps(input.value)" #input />
+  <pre>{{ filteredRepo  | json }}</pre>
+</div>

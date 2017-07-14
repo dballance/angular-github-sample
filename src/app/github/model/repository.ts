@@ -1,12 +1,20 @@
+/**
+ * A GitHub Repository
+ *
+ * @export
+ * @class GitHubRepository
+ */
 export class GitHubRepository {
-  id: number;
-  name: string;
-  full_name: string;
-  url: string;
+  public id: number;
+  public name: string;
+  public url: string;
+  public description: string;
+  public html_url: string;
   // DateTime
-  created_at: string;
+  public created_at: string;
   // DateTime
-  updated_at: string;
+  public updated_at: string;
   // DateTime
-  pushed_at: string;
+  public pushed_at: string;
+  public stargazers_count: number;
 }

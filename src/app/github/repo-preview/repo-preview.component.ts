@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy, HostBinding } from '@angular/core';
+import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { GitHubRepository } from '../model';
 
 @Component({
@@ -12,12 +12,20 @@ export class RepoPreviewComponent {
   /**
    * The repo
    *
+   * @public
    * @type {GitHubRepo}
    * @memberof RepoPreviewComponent
    */
   @Input()
-  repo: GitHubRepository;
+  public repo: GitHubRepository;
 
-  @HostBinding()
-  class = 'col-md-4';
+  /**
+   * Event emitter when the "View" button is pressed
+   *
+   * @public
+   * @type {EventEmitter<GitHubRepository>}
+   * @memberof RepoPreviewComponent
+   */
+  @Output()
+  public view: EventEmitter<GitHubRepository> = new EventEmitter<GitHubRepository>();
 }
