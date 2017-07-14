@@ -1,5 +1,11 @@
 # AngularGithubSample
 
+A simple client that fetches the top starred Angular repositories and displays in a list. 
+
+A detail view is available, where the properties of the github API response may be filtered.
+
+All code is contained with the `GitHubModule`, which contains the API service, and all presentational and container components. The list of repos is purely presentational and contains no logic - maximizing reuse. The module itself is self-contained, and could be dropped in another Angular application and it's components immediately utilized.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
 
 ## Development server
